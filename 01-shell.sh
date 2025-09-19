@@ -1,3 +1,4 @@
 #!/bin/bash
 
-Just a test
+echo "Just a test of Git on Fedora"
+
