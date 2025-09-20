@@ -1,12 +1,12 @@
 #!/bin/bash
 
-d=$(date)
 
-start_time=$(date + %s)
+
+start_time=$(date +%s)
 
 sleep 10
 
-end_time=$(date + %s)
+end_time=$(date +%s)
 
 tt=$(($end_time-$start_time))
 echo "Execution start:" $start_time
