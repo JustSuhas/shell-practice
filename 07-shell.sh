@@ -1,5 +1,5 @@
 #!/bin/bash
 
-d = $(date)
+d=$(date)
 
 echo "Executed date: $d"
