@@ -12,6 +12,6 @@ echo "Home directory of user $HOME"
 
 echo "PID of the script: $$"
 
-d=$(date)
+sleep 10 &
 
 echo "PID of the last excecuted command"$!
