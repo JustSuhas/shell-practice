@@ -11,3 +11,7 @@ echo "Who is running this:"$USER
 echo "Home directory of user $HOME"
 
 echo "PID of the script: $$"
+
+d=$(date)
+
+echo "PID of the last excecuted command"$!
