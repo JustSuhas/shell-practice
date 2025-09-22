@@ -1,28 +1,45 @@
 #!bin/bash
 
+R="\e[31m"
+G="\e[32m"
+O="\e[033m"
+N="\e[0m"
+
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
-    echo "Error: Please run this script with root privelege"
+    echo -e "$R Error $N: Run this script with root privelege"
     exit 1
 fi
 
 validate(){
-    if [ $1 -ne 0]; then
-        echo "Error: Installing $2 has failed"
+    if [ $1 -ne 0 ]; then
+        echo "$R Error $N: Installing $2 has failed"
         exit 1
     else
-        echo "Installation of $2 is successful"
+        echo "Installation of $2 is $G successful $N"
     fi
 
 
 }
 
-dnf install mysql -y
-validate $? "MySQL"
+dnf list installed mysql
+if [ $? -ne 0 ]; then
+    dnf install mysql -y
+    validate $? "MySQL"
+else
+    echo "MySQL is $O already $N installed"
 
-dnf install nginx -y
-validate $? "Nginx"
+dnf list installed nginx
+if [ $? -ne 0 ]; then
+    dnf install nginx -y
+    validate $? "Nginx"
+else
+    echo "Nginx is $O already $N installed"
 
-dnf install python3 -y
-validate $? "python3
+dnf list installed python3
+if [ $? -ne 0 ]; then
+    dnf install python3 -y
+    validate $? "Python3"
+else
+    echo "Python3 is $O already $N installed"
