@@ -29,6 +29,7 @@ if [ $? -ne 0 ]; then
     validate $? "MySQL"
 else
     echo "MySQL is $O already $N installed"
+fi
 
 dnf list installed nginx
 if [ $? -ne 0 ]; then
@@ -36,6 +37,7 @@ if [ $? -ne 0 ]; then
     validate $? "Nginx"
 else
     echo "Nginx is $O already $N installed"
+fi
 
 dnf list installed python3
 if [ $? -ne 0 ]; then
@@ -43,3 +45,4 @@ if [ $? -ne 0 ]; then
     validate $? "Python3"
 else
     echo "Python3 is $O already $N installed"
+fi
